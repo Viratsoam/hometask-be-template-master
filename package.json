@@ -1,0 +1,46 @@
+{
+  "name": "deel-backend-task",
+  "version": "1.0.0",
+  "description": "DEEL Backend Task",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "test": "jest --runInBand",
+    "test:coverage": "jest --coverage --runInBand",
+    "seed": "node scripts/seedDb.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-rate-limit": "^6.7.0",
+    "helmet": "^7.0.0",
+    "sequelize": "^6.6.5",
+    "sqlite3": "^5.0.2"
+  },
+  "devDependencies": {
+    "jest": "^27.0.6",
+    "nodemon": "^2.0.12",
+    "supertest": "^6.1.6"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "setupFilesAfterEnv": ["./tests/setup.js"],
+    "testTimeout": 30000,
+    "verbose": true,
+    "forceExit": true,
+    "detectOpenHandles": true,
+    "collectCoverageFrom": [
+      "src/**/*.js",
+      "!src/server.js",
+      "!src/app.js"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 80,
+        "functions": 80,
+        "lines": 80,
+        "statements": 80
+      }
+    }
+  }
+}
